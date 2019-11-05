@@ -25,18 +25,18 @@ public class GildedRose {
                         logger.info("Item quality baisse de 1");
                         items[i].quality = items[i].quality - 1;
                     }
-                            if (items[i].name.contains("Conjured") && items[i].quality>0) {
-                                logger.info("si conjured : Item quality baisse de 1 en plus");
-                                items[i].quality = items[i].quality - 1;
-                            }
+                    if (items[i].name.contains("Conjured") && items[i].quality>0) {
+                        logger.info("si conjured : Item quality baisse de 1 en plus");
+                        items[i].quality = items[i].quality - 1;
                     }
-                } else {
+                }
+            } else {
                 logger.info("item = brie ou backstage");
                 if (items[i].quality < 50) {
                     logger.info("item quality augmente de 1");
                     items[i].quality = items[i].quality + 1;
 
-                    if (items[i].name.contains("Conjured")) {
+                    if (items[i].name.contains("Conjured") && items[i].quality<50) {
                         logger.info("si conjured : Item quality augmente de 1 en plus");
                         items[i].quality = items[i].quality + 1;
                     }
@@ -72,7 +72,7 @@ public class GildedRose {
                                 logger.info("item quality baisse de 1 :" + items[i].quality);
                                 items[i].quality = items[i].quality - 1;
                             }
-                            if (items[i].name.contains("Conjured")) {
+                            if (items[i].name.contains("Conjured") && items[i].quality>0) {
                                 logger.info("si conjured : Item quality baisse de 1 en plus: " + items[i].quality);
                                 items[i].quality = items[i].quality - 1;
                             }
@@ -86,7 +86,7 @@ public class GildedRose {
                         logger.info("item quality augmente de 1: " + items[i].quality );
                         items[i].quality = items[i].quality + 1;
                     }
-                    if (items[i].name.contains("Conjured")) {
+                    if (items[i].name.contains("Conjured") && items[i].quality<50) {
                         logger.info("si conjured : Item quality augmente de 1 en plus: " + items[i].quality);
                         items[i].quality = items[i].quality + 1;
                     }
