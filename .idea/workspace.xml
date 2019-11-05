@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43228b1a-ec89-409a-8003-fafe028fb337" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="43228b1a-ec89-409a-8003-fafe028fb337" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,14 +37,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="474">
+              <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#237#238#0" expanded="true" />
                 <element signature="e#271#272#0" expanded="true" />
-                <element signature="e#2044#2045#0" expanded="true" />
-                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2966#2967#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,7 +61,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-108">
+            <state relative-caret-position="1674">
               <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
@@ -327,23 +323,11 @@
       <updated>1572856714430</updated>
       <workItem from="1572856723421" duration="9125000" />
       <workItem from="1572872049945" duration="9675000" />
-      <workItem from="1572939848971" duration="8589000" />
+      <workItem from="1572939848971" duration="8904000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GildedRoseTest_decreaseQualityByTwo - 2019.11.05 at 09h 41m 31s.xml">
-      <configuration name="GildedRoseTest.decreaseQualityByTwo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GildedRoseTest - 2019.11.05 at 09h 51m 00s.xml">
-      <configuration name="GildedRoseTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GildedRoseTest - 2019.11.05 at 09h 51m 47s.xml">
-      <configuration name="GildedRoseTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GildedRoseTest_itemQualityNotOverFifty - 2019.11.05 at 09h 54m 20s.xml">
-      <configuration name="GildedRoseTest.itemQualityNotOverFifty" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GildedRoseTest - 2019.11.05 at 09h 56m 49s.xml">
       <configuration name="GildedRoseTest" configurationId="JUnit" />
     </history-entry>
@@ -362,13 +346,24 @@
     <history-entry file="GildedRoseTest - 2019.11.05 at 11h 20m 51s.xml">
       <configuration name="GildedRoseTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GildedRoseTest_backstageIncreaseQualityByThree - 2019.11.05 at 11h 22m 26s.xml">
+      <configuration name="GildedRoseTest.backstageIncreaseQualityByThree" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GildedRoseTest_backstageIncreaseQualityByThree - 2019.11.05 at 11h 22m 43s.xml">
+      <configuration name="GildedRoseTest.backstageIncreaseQualityByThree" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GildedRoseTest_backstageIncreaseQualityByThree - 2019.11.05 at 11h 24m 57s.xml">
+      <configuration name="GildedRoseTest.backstageIncreaseQualityByThree" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GildedRoseTest - 2019.11.05 at 11h 25m 13s.xml">
+      <configuration name="GildedRoseTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27389000" />
+    <option name="totallyTimeSpent" value="27704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -379,7 +374,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30107528" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30107528" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -387,7 +382,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32795697" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32795697" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -456,21 +451,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="474">
+          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#237#238#0" expanded="true" />
             <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2966#2967#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
+        <state relative-caret-position="1674">
           <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
