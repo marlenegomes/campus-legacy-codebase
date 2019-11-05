@@ -30,6 +30,10 @@ public class Item {
         }
     }
 
+    public void increaseQualityWine() {
+            this.quality++;
+        }
+
     public void defaultMethod() {
         this.decreaseQuality();
         if (this.sellIn < 0) {
@@ -64,10 +68,10 @@ public class Item {
     }
 
     public void agingRedWineMethod() {
-        if (this.sellIn < 0 && this.sellIn >= -100) {
-            this.increaseQuality();
+        if (this.sellIn <= 600 && this.sellIn >= 300) {
+            this.increaseQualityWine();
         }
-        if (this.sellIn < -100) {
+        if (this.sellIn < 0) {
             this.decreaseQuality();
         }
     }

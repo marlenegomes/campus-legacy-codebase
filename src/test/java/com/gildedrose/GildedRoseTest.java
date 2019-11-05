@@ -136,5 +136,29 @@ class GildedRoseTest {
         assertThat(app.items[0].quality).isEqualTo(0);
     }
 
+    @Test
+    void winedecreaseQualityByOne() {
+        Item[] items = new Item[] {
+                new Item("Red red wine", -100, 100),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(99);
+    }
 
+    @Test
+    void wineQualityIncreaseByOne() {
+        Item[] items = new Item[] { new Item("Red red wine", 550, 100) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(101);
+    }
+
+    @Test
+    void winekeepQuality() {
+        Item[] items = new Item[] { new Item("Red red wine", 200, 100) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(100);
+    }
 }
