@@ -16,6 +16,7 @@ public class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+            logger.info("Début | item: " + items[i].name + ", sellIn : " + items[i].sellIn + ", quality :  " + items[i].quality);
             int quality = items[i].quality;
             int sellIn = items[i].sellIn;
             if(!items[i].name.equals("Sulfuras, Hand of Ragnaros")){
@@ -49,6 +50,10 @@ public class GildedRose {
                         logger.info("Backstage passes, sellIN <6 || quality + 2");
                         quality = quality + 1;
                     }
+                    if (sellIn  > 10) {
+                        logger.info("Backstage passes, sellIN <6 || quality + 2");
+                        quality = quality + 1;
+                    }
                 }
             } else if (items[i].name.startsWith("Conjured")) {
                 if (quality > 0) {
@@ -77,7 +82,7 @@ public class GildedRose {
             }
             items[i].sellIn = sellIn;
             items[i].quality = quality;
-
+            logger.info("FIN | item: " + items[i].name + ", sellIn : " + items[i].sellIn + ", quality :  " + items[i].quality);
         }
 
     }
