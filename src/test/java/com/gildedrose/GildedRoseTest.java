@@ -17,19 +17,9 @@ class GildedRoseTest {
     }
 
     @Test
-    void decreaseSellInByOne() {
+    void decreaseQualityByTwoIfSellinIsNegative() {
         Item[] items = new Item[] {
-                new Item("normal", 20, 30),
-        };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].sellIn).isEqualTo(19);
-    }
-
-    @Test
-    void decreaseQualityByTwo() {
-        Item[] items = new Item[] {
-                new Item("normal", -5, 10),
+                new Item("normal", -111, 10),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -37,19 +27,29 @@ class GildedRoseTest {
     }
 
     @Test
-    void BrieIncreaseQualityByOne() {
+    void itemQualityShouldIncreaseIfAgedBrie() {
         Item[] items = new Item[] {
-                new Item("Aged Brie", -5, 5),
+                new Item("Aged Brie", 10, 10),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(7);
+        assertThat(app.items[0].quality).isEqualTo(11);
     }
 
     @Test
-    void sulfurasKeepQuality() {
+    void AgedBrieShouldIncreaseByTwoIfSellInNegative() {
         Item[] items = new Item[] {
-                new Item("Sulfuras, Hand of Ragnaros", -5, 80),
+                new Item("Aged Brie", -500000, 10),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(12);
+    }
+
+    @Test
+    void qualityShouldBeTheSameIfSulfuras() {
+        Item[] items = new Item[] {
+                new Item("Sulfuras, Hand of Ragnaros", 10, 80),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -57,7 +57,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void keepSellIn() {
+    void sellInShouldBeTheSameIfSulfuras() {
         Item[] items = new Item[] {
                 new Item("Sulfuras, Hand of Ragnaros", 10, 80),
         };
@@ -67,9 +67,19 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstageIncreaseQualityByTwo() {
+    void itemQualityShouldIncreaseByOneIfSellInMoreThanEleven() {
         Item[] items = new Item[] {
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10),
+                new Item("Backstage passes to a TAFKAL80ETC concert", 20, 10),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(11);
+    }
+
+    @Test
+    void ItemQualityShouldIncreaseByTwoIfBackstageSellinLessThanEleven() {
+        Item[] items = new Item[] {
+                new Item("Backstage passes to a TAFKAL80ETC concert", 8, 10),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -77,7 +87,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstageIncreaseQualityByThree() {
+    void ItemQualityShouldIncreaseByThreeIfBackstageSellinLessThanSix() {
         Item[] items = new Item[] {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 10),
         };
@@ -87,78 +97,105 @@ class GildedRoseTest {
     }
 
     @Test
-    void backstageQualityEqualToZero() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", -1, 10) };
+    void DecreaseQualityByTwoIfConjured() {
+        Item[] items = new Item[] {
+                new Item("Conjured", 24, 33),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(31);
+    }
+
+    @Test
+    void DecreaseQualityByFourIfConjuredAndSellInNegative() {
+        Item[] items = new Item[] {
+                new Item("Conjured", -24, 33),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(29);
+    }
+
+    @Test
+    void qualityShouldNotBeOverFifty() {
+        Item[] items = new Item[] {
+                new Item("Aged Brie", 10, 50),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(50);
+    }
+
+    @Test
+    void qualityShouldNotBeOverFiftyIfBackstage() {
+        Item[] items = new Item[] {
+                new Item("Backstage passes to a TAFKAL80ETC concert", 8, 49),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(50);
+    }
+
+    @Test
+    void qualityShouldBeZeroIfBackstageSellinIsZero() {
+        Item[] items = new Item[] {
+                new Item("Backstage passes to a TAFKAL80ETC concert", 0, 49),
+        };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(0);
     }
 
     @Test
-    void brieQualityIncreaseByOne() {
-        Item[] items = new Item[] { new Item("Aged Brie", 5, 5) };
+    void qualityShouldIncreaseByOneIfRedWine() {
+        Item[] items = new Item[] {
+                new Item("Red red wine", 500, 60),
+        };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(6);
+        assertThat(app.items[0].quality).isEqualTo(61);
     }
 
     @Test
-    void brieQualityIncreaseByTwo() {
-        Item[] items = new Item[] { new Item("Aged Brie", -5, 5) };
+    void redWineQualityShouldNotIncreaseByOneIfSellInIsLessThanThreeHundred() {
+        Item[] items = new Item[] {
+                new Item("Red red wine", 200, 60),
+        };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(7);
+        assertThat(app.items[0].quality).isEqualTo(60);
     }
 
     @Test
-    void conjuredItemQualityDecreaseByTwo() {
-        Item[] items = new Item[] { new Item("Conjured Mana Cake", 5, 10) };
+    void redWineQualityShouldDecreaseByOneIfSellInIsLessThanZero() {
+        Item[] items = new Item[] {
+                new Item("Red red wine",  -14, 555),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(554);
+    }
+
+    @Test
+    void ItemQualityShouldNotBeLessThanZero() {
+        Item[] items = new Item[] {
+                new Item("Un item tout à fait normal",  20, 0),
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].quality).isEqualTo(0);
+    }
+
+    @Test
+    void ItemWhichStartWithConjuredIsConjured() {
+        Item[] items = new Item[] {
+                new Item("Conjured tomato pasta",  10, 10),
+        };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(app.items[0].quality).isEqualTo(8);
     }
 
-    @Test
-    void conjuredItemQualityDecreaseByFour() {
-        Item[] items = new Item[] { new Item("Conjured Mana Cake", -2, 10) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(6);
-    }
 
 
-
-    @Test
-    void itemQualityNeverBeNegative() {
-        Item[] items = new Item[] { new Item("Conjured", 5, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(0);
-    }
-
-    @Test
-    void winedecreaseQualityByOne() {
-        Item[] items = new Item[] {
-                new Item("Red red wine", -100, 100),
-        };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(99);
-    }
-
-    @Test
-    void wineQualityIncreaseByOne() {
-        Item[] items = new Item[] { new Item("Red red wine", 550, 100) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(101);
-    }
-
-    @Test
-    void winekeepQuality() {
-        Item[] items = new Item[] { new Item("Red red wine", 200, 100) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(100);
-    }
 }

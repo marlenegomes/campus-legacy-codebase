@@ -1,13 +1,9 @@
 package com.gildedrose;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GildedRose {
-    public static final String AGED_BRIE = "Aged Brie";
-    public static final String BACKSTAGE = "Backstage passes to a TAFKAL80ETC concert";
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
-    public static final String CONJURED = "Conjured Mana Cake";
-    public static final String WINE = "Red red wine";
     Item[] items;
 
     private Logger logger = LoggerFactory.getLogger(GildedRose.class);
@@ -21,48 +17,80 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) {
-            int oldQuality = item.quality;
-            int oldSellIn = item.sellIn;
-            coreWork(item);
-            generateLogs(oldQuality, oldSellIn, item);
-        }
-    }
+        for (int i = 0; i < items.length; i++) {
+            Item item = items[i];
+            logger.debug("DEBUT : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
+            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                logger.info("si non sulfuras || sellIn -1");
+                item.sellIn--;
+            }
 
-    private void coreWork(Item item) {
-        if (item.name.equals(SULFURAS)) {
-            return;
+            switch (item.name) {
+                case "Aged Brie":
+                    if (item.quality < 50) {
+                        logger.info("si Aged Brie || quality +1");
+                        item.quality++;
+                        if (item.sellIn < 0 && item.quality < 50) {
+                            logger.info("si Aged Brie et sellIn <0 et quality<50 || quality +1");
+                            item.quality++;
+                        }
+                    }
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    if (item.quality < 50) {
+                        logger.info("si Backstage et quality<50 || quality +1");
+                        item.quality++;
+                        if (item.sellIn < 11) {
+                            logger.info("si Backstage et sellIn <11 || quality +1");
+                            item.quality++;
+                        }
+                        if (item.sellIn < 6) {
+                            logger.info("si Backstage et sellIn <6 || quality +1");
+                            item.quality++;
+                        }
+                    }
+                    if (item.quality > 50) {
+                        logger.info("si Backstage quality>50 || quality = 50");
+                        item.quality = 50;
+                    }
+                    if (item.sellIn <= 0) {
+                        logger.info("si Backstage et sellIn <=0 || quality = 0");
+                        item.quality = 0;
+                    }
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    break;
+                case "Red red wine":
+                    if (item.sellIn > 300) {
+                        logger.info("si RedWine et sellIn >300 || quality +1");
+                        item.quality++;
+                    }
+                    if (item.sellIn <= 0) {
+                        logger.info("si RedWine et sellIn <=0 || quality -1");
+                        item.quality--;
+                    }
+                    break;
+                default:
+                    if (item.name.startsWith("Conjured")) {
+                        logger.info("si Conjured || quality -1");
+                        item.quality--;
+                        if (item.sellIn < 0) {
+                            logger.info("si Conjured et sellIn <0 || quality -1");
+                            item.quality--;
+                        }
+                    }
+                    logger.info("si normal ou conjured || quality -1");
+                    item.quality--;
+                    if (item.sellIn < 0) {
+                        logger.info("si normal ou conjured et sellin<0 || quality -1");
+                        item.quality--;
+                    }
+                    if (item.quality < 0) {
+                        logger.info("si normal ou conjured et quality<0 || quality = 0");
+                        item.quality = 0;
+                    }
+            }
+            logger.debug("FIN : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
         }
-        item.sellIn--;
-
-        String name = item.name;
-        if (item.name.startsWith("Conjured")) {
-            name = CONJURED;
-        }
-
-        switch (name){
-            case AGED_BRIE:
-                item.agedBrieMethod();
-                break;
-            case BACKSTAGE:
-                item.backstageMethod();
-                break;
-            case CONJURED:
-                item.conjuredMethod();
-                break;
-            case WINE:
-                item.agingRedWineMethod();
-                break;
-            default:
-                item.defaultMethod();
-        }
-    }
-
-    private void generateLogs(int oldQuality, int oldSellIn, Item item) {
-        logger.info("Name is : " + item.name + "\n" +
-                "Old quality was : " + oldQuality + "\n" +
-                "Old sellIn was : " + oldSellIn + "\n" +
-                "New quality is : " + item.quality + "\n" +
-                "new sellIn is : " + item.sellIn);
     }
 }
