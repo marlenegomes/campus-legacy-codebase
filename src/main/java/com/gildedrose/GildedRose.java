@@ -61,7 +61,7 @@ public class GildedRose {
                 case "Sulfuras, Hand of Ragnaros":
                     break;
                 case "Red red wine":
-                    if (item.sellIn > 300) {
+                    if (item.sellIn >= 300) {
                         logger.info("si RedWine et sellIn >300 || quality +1");
                         item.quality++;
                     }
