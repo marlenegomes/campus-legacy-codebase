@@ -16,10 +16,10 @@ public class Conjured extends Normal {
         super.UpdateItem();
         if (name.startsWith("Conjured")) {
             logger.info("si Conjured || quality -1");
-            this.quality--;
+            this.quality -= 2;
             if (this.sellIn < 0) {
                 logger.info("si Conjured et sellIn <0 || quality -1");
-                this.quality--;
+                this.quality -= 2;
             }
         }
     }
