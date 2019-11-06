@@ -7,8 +7,6 @@
     <list default="true" id="43228b1a-ec89-409a-8003-fafe028fb337" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gildedrose/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gildedrose/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,59 +39,42 @@
     </window>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.51014495">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/Item.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="20" selection-start-line="20" selection-end-line="20" />
-                  <folding>
-                    <element signature="e#314#315#0" expanded="true" />
-                    <element signature="e#389#390#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="27" selection-start-line="27" selection-end-line="27" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="549">
-                  <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#389#390#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -108,8 +89,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/gildedrose/Item.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java" />
       </list>
     </option>
   </component>
@@ -339,17 +320,11 @@
       <workItem from="1572856723421" duration="9125000" />
       <workItem from="1572872049945" duration="9675000" />
       <workItem from="1572939848971" duration="20012000" />
-      <workItem from="1573025823063" duration="9067000" />
+      <workItem from="1573025823063" duration="10419000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GildedRoseTest - 2019.11.06 at 10h 58m 17s.xml">
-      <configuration name="GildedRoseTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GildedRoseTest_redWineQualityShouldDecreaseByOneIfSellInIsLessThanZero - 2019.11.06 at 10h 59m 57s.xml">
-      <configuration name="GildedRoseTest.redWineQualityShouldDecreaseByOneIfSellInIsLessThanZero" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GildedRoseTest - 2019.11.06 at 11h 02m 40s.xml">
       <configuration name="GildedRoseTest" configurationId="JUnit" />
     </history-entry>
@@ -374,9 +349,15 @@
     <history-entry file="GildedRoseTest - 2019.11.06 at 11h 19m 19s.xml">
       <configuration name="GildedRoseTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GildedRoseTest_decreaseQualityByTwoIfSellinIsNegative - 2019.11.06 at 11h 20m 17s.xml">
+      <configuration name="GildedRoseTest.decreaseQualityByTwoIfSellinIsNegative" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GildedRoseTest - 2019.11.06 at 11h 20m 21s.xml">
+      <configuration name="GildedRoseTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47879000" />
+    <option name="totallyTimeSpent" value="49231000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
@@ -391,7 +372,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2204301" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2204301" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -399,7 +380,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33333334" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25268817" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32903227" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -509,20 +490,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="72" column="21" lean-forward="true" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/gildedrose/GildedRoseTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gildedrose/GildedRose.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+        <state relative-caret-position="303">
+          <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

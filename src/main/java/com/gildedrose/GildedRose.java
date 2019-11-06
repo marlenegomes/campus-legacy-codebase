@@ -65,7 +65,7 @@ public class GildedRose {
                         logger.info("si RedWine et sellIn >300 || quality +1");
                         item.quality++;
                     }
-                    if (item.sellIn <= 0) {
+                    if (item.sellIn < 0) {
                         logger.info("si RedWine et sellIn <=0 || quality -1");
                         item.quality--;
                     }
