@@ -22,43 +22,38 @@ public class GildedRose {
             Item item = items[i];
             logger.debug("DEBUT : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
 
+            Item typedItem = null;
+
             switch (item.name) {
                 case "Aged Brie":
-                    AgedBrie agedbrie = new AgedBrie(item.name, item.sellIn, item.quality);
-                    agedbrie.UpdateItem();
-                    applyUpdate(item, agedbrie);
+                    typedItem = new AgedBrie(item.name, item.sellIn, item.quality);
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    Backstage backstage = new Backstage(item.name, item.sellIn, item.quality);
-                    backstage.UpdateItem();
-                    applyUpdate(item, backstage);
+                    typedItem = new Backstage(item.name, item.sellIn, item.quality);
                     break;
                 case "Sulfuras, Hand of Ragnaros":
-                    Sulfuras sulfuras = new Sulfuras(item.name, item.sellIn, item.quality);
-                    sulfuras.UpdateItem();
+                    typedItem = new Sulfuras(item.name, item.sellIn, item.quality);
                     break;
                 case "Red red wine":
-                    RedWine redwine = new RedWine(item.name, item.sellIn, item.quality);
-                    redwine.UpdateItem();
-                    applyUpdate(item, redwine);
+                    typedItem = new RedWine(item.name, item.sellIn, item.quality);
                     break;
                 default:
                     if(item.name.startsWith("Conjured")){
-                        Conjured conjured = new Conjured(item.name, item.sellIn, item.quality);
-                        conjured.UpdateItem();
-                        applyUpdate(item, conjured);
+                        typedItem = new Conjured(item.name, item.sellIn, item.quality);
                     }else {
-                        Normal normal = new Normal(item.name, item.sellIn, item.quality);
-                        normal.UpdateItem();
-                        applyUpdate(item, normal);
+                        typedItem = new Normal(item.name, item.sellIn, item.quality);
                     }
             }
+
+            typedItem.UpdateItem();
+            applyUpdate(item, typedItem);
+
             logger.debug("FIN : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
         }
     }
 
-    private void applyUpdate(Item item, Item agedbrie) {
-        item.quality = agedbrie.quality;
-        item.sellIn = agedbrie.sellIn;
+    private void applyUpdate(Item item, Item childitem) {
+        item.quality = childitem.quality;
+        item.sellIn = childitem.sellIn;
     }
 }

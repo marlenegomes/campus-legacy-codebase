@@ -14,14 +14,14 @@ public class Normal extends Item {
     @Override
     public void UpdateItem() {
         super.UpdateItem();
-        logger.info("si normal ou conjured || quality -1");
+        logger.info("si normal || quality -1");
         this.quality--;
         if (this.sellIn < 0) {
-            logger.info("si normal ou conjured et sellin<0 || quality -1");
+            logger.info("si normal et sellin<0 || quality -1");
             this.quality--;
         }
         if (this.quality < 0) {
-            logger.info("si normal ou conjured et quality<0 || quality = 0");
+            logger.info("si normal et quality<0 || quality = 0");
             this.quality = 0;
         }
     }
