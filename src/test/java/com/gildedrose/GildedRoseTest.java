@@ -139,7 +139,7 @@ class GildedRoseTest {
     @Test
     void qualityShouldBeZeroIfBackstageSellinIsZero() {
         Item[] items = new Item[]{
-                new Item("Backstage passes to a TAFKAL80ETC concert", 0, 49),
+                new Item("Backstage passes to a TAFKAL80ETC concert", -1, 49),
         };
         GildedRose app = new GildedRose(items);
         app.updateQuality();

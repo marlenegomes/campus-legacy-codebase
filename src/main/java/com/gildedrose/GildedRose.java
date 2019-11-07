@@ -3,6 +3,9 @@ package com.gildedrose;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class GildedRose {
     Item[] items;
 
@@ -22,38 +25,60 @@ public class GildedRose {
             Item item = items[i];
             logger.debug("DEBUT : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
 
-            Item typedItem = null;
-
-            switch (item.name) {
-                case "Aged Brie":
-                    typedItem = new AgedBrie(item.name, item.sellIn, item.quality);
-                    break;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    typedItem = new Backstage(item.name, item.sellIn, item.quality);
-                    break;
-                case "Sulfuras, Hand of Ragnaros":
-                    typedItem = new Sulfuras(item.name, item.sellIn, item.quality);
-                    break;
-                case "Red red wine":
-                    typedItem = new RedWine(item.name, item.sellIn, item.quality);
-                    break;
-                default:
-                    if(item.name.startsWith("Conjured")){
-                        typedItem = new Conjured(item.name, item.sellIn, item.quality);
-                    }else {
-                        typedItem = new Normal(item.name, item.sellIn, item.quality);
-                    }
-            }
-
-            typedItem.UpdateItem();
-            applyUpdate(item, typedItem);
+            applyUpdate(item, RulesFactory(item));
 
             logger.debug("FIN : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
         }
     }
 
-    private void applyUpdate(Item item, Item childitem) {
-        item.quality = childitem.quality;
-        item.sellIn = childitem.sellIn;
+    private Rules RulesFactory(Item item) {
+        Rules ruleList;
+        switch (item.name) {
+            case "Aged Brie":
+                ruleList = new Rules(Arrays.asList(
+                        RuleSet.increaseQualityByOneBrie,
+                        RuleSet.increaseQualityByTwoBrie
+                ));
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+                ruleList = new Rules(Arrays.asList(
+                        RuleSet.increaseQualityByOneBackstage,
+                        RuleSet.increaseQualityByTwoBackstage,
+                        RuleSet.increaseQualityByThreeBackstage,
+                        RuleSet.setQualityToZeroBackstage
+                ));
+                break;
+            case "Sulfuras, Hand of Ragnaros":
+                ruleList = new Rules(Arrays.asList(
+                        RuleSet.ruleSulfuras
+                ));
+                break;
+            case "Red red wine":
+                ruleList = new Rules(Arrays.asList(
+                        RuleSet.increaseQualityByOneWine,
+                        RuleSet.decreaseQualityByOneWine,
+                        RuleSet.maintainQualityWine
+                ));
+                break;
+            default:
+                if (item.name.startsWith("Conjured")) {
+                    ruleList = new Rules(Arrays.asList(
+                            RuleSet.DecreaseQualityByTwoConjured,
+                            RuleSet.DecreaseQualityByFourConjured
+                    ));
+                } else {
+                    ruleList = new Rules(Arrays.asList(
+                            RuleSet.DecreaseQualityByOne,
+                            RuleSet.DecreaseQualityByTwo
+                    ));
+                }
+        }
+        return ruleList;
     }
+
+    private void applyUpdate(Item item, Rules rules) {
+        rules.apply(item);
+    }
+
+
 }
