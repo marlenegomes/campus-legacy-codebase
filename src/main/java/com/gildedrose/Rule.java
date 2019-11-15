@@ -7,6 +7,10 @@ import org.slf4j.LoggerFactory;
 
 public class Rule {
 
+    public static Rule ruleFor(Range<Integer> range, Action action) {
+        return new Rule(range, action);
+    }
+
     private final Range<Integer> range;
     private final Action action;
 

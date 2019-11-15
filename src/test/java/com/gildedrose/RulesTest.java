@@ -16,11 +16,11 @@ class RulesTest {
     void shouldThrowWhenRangeIsNotTotal() {
         Assertions.assertThatThrownBy(
                 () ->
-                new Rules(
-                Arrays.asList(
-                        new Rule(Range.closed(0, 10), quality -> quality)
-                )
-        )).isInstanceOf(IllegalArgumentException.class);
+                        new Rules(
+                                Arrays.asList(
+                                        new Rule(Range.closed(0, 10), quality -> quality)
+                                )
+                        )).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -33,5 +33,5 @@ class RulesTest {
                                         new Rule(Range.lessThan(0), quality -> quality)
                                 )
                         )).doesNotThrowAnyException();
-        }
+    }
 }

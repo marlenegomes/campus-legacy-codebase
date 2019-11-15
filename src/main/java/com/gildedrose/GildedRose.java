@@ -3,8 +3,8 @@ package com.gildedrose;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.ArrayList;
+import static com.gildedrose.Rule.ruleFor;
+import static com.google.common.collect.Range.*;
 
 public class GildedRose {
     Item[] items;
@@ -20,9 +20,8 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
+        for (Item item : items) {
 
-            Item item = items[i];
             logger.debug("DEBUT : nom item: {}, sellIn: {}, quality: {}", item.name, item.sellIn, item.quality);
 
             applyUpdate(item, RulesFactory(item));
@@ -32,48 +31,58 @@ public class GildedRose {
     }
 
     private Rules RulesFactory(Item item) {
-        Rules ruleList;
         switch (item.name) {
             case "Aged Brie":
-                ruleList = new Rules(Arrays.asList(
+                return Rules.of(
                         RuleSet.increaseQualityByOneBrie,
                         RuleSet.increaseQualityByTwoBrie
-                ));
-                break;
+                );
             case "Backstage passes to a TAFKAL80ETC concert":
-                ruleList = new Rules(Arrays.asList(
-                        RuleSet.increaseQualityByOneBackstage,
+                return Rules.of(
+                        new Rule(atLeast(11), upgrade()),
                         RuleSet.increaseQualityByTwoBackstage,
                         RuleSet.increaseQualityByThreeBackstage,
                         RuleSet.setQualityToZeroBackstage
-                ));
-                break;
+                );
             case "Sulfuras, Hand of Ragnaros":
-                ruleList = new Rules(Arrays.asList(
+                return Rules.of(
                         RuleSet.ruleSulfuras
-                ));
-                break;
+                );
             case "Red red wine":
-                ruleList = new Rules(Arrays.asList(
-                        RuleSet.increaseQualityByOneWine,
-                        RuleSet.decreaseQualityByOneWine,
-                        RuleSet.maintainQualityWine
-                ));
-                break;
+                return Rules.of(
+                        ruleFor(atLeast(300), incrementQuality()),
+                        ruleFor(lessThan(0), decrementQuality()),
+                        ruleFor(closedOpen(0, 300), stableQuality())
+                );
             default:
                 if (item.name.startsWith("Conjured")) {
-                    ruleList = new Rules(Arrays.asList(
+                    return Rules.of(
                             RuleSet.DecreaseQualityByTwoConjured,
                             RuleSet.DecreaseQualityByFourConjured
-                    ));
+                    );
                 } else {
-                    ruleList = new Rules(Arrays.asList(
+                    return Rules.of(
                             RuleSet.DecreaseQualityByOne,
                             RuleSet.DecreaseQualityByTwo
-                    ));
+                    );
                 }
         }
-        return ruleList;
+    }
+
+    private Rule.Action upgrade() {
+        return quality -> quality + 1;
+    }
+
+    private Rule.Action stableQuality() {
+        return quality -> quality;
+    }
+
+    private Rule.Action decrementQuality() {
+        return quality -> quality - 1;
+    }
+
+    private Rule.Action incrementQuality() {
+        return quality -> quality + 1;
     }
 
     private void applyUpdate(Item item, Rules rules) {

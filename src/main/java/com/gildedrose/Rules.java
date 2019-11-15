@@ -2,9 +2,14 @@ package com.gildedrose;
 
 import com.google.common.collect.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Rules {
+
+    public static Rules of(Rule... rules) {
+        return new Rules(Arrays.asList(rules));
+    }
 
     private final List<Rule> ruleList;
 
@@ -26,10 +31,10 @@ public class Rules {
     }
 
     public void apply(Item item) {
-        for (int i=0; i < this.ruleList.size(); i++) {
-            if (this.ruleList.get(i).getRange().contains(item.sellIn)  ) {
-                this.ruleList.get(i).apply(item);
-            }
+        for (Rule rule : this.ruleList) {
+            if (rule.getRange().contains(item.sellIn)) {
+                rule.apply(item);
             }
         }
     }
+}
